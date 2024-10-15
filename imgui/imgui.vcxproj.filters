@@ -22,6 +22,12 @@
     <Filter Include="Mem">
       <UniqueIdentifier>{38ef4381-3f7c-420d-8348-f467ee821dc1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Util">
+      <UniqueIdentifier>{07d8994e-be1b-444b-bcab-c56e33b8c408}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine">
+      <UniqueIdentifier>{30fb1514-ae95-45b0-92bf-7811a7cfe1e7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -54,6 +60,9 @@
     <ClCompile Include="Memory.cpp">
       <Filter>Mem</Filter>
     </ClCompile>
+    <ClCompile Include="Engine.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ImGui\imconfig.h">
@@ -85,6 +94,12 @@
     </ClInclude>
     <ClInclude Include="Memory.h">
       <Filter>Mem</Filter>
+    </ClInclude>
+    <ClInclude Include="Global.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine.h">
+      <Filter>Engine</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

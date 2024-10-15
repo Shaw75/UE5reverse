@@ -2,10 +2,11 @@
 #include <iostream>
 #include "dx11.h"
 #include "memory.h"
+#include "Global.hpp"
+#include "Engine.h"
 
 void TestDraw() {
 	ImGui_ImplDX11_NewFrame();
-
 	ImGui_ImplWin32_NewFrame();
 	ImGui::NewFrame();
 	ImGui::Begin("hello world");
@@ -20,18 +21,35 @@ void TestDraw() {
 } 
 
 
+
+
+
 int main() {
 
-
-	bool init = Memory::init();
-	printf("%d\n", init);
-	ULONG64 moduleBase = Memory::GetModleBaseAdr();
-
-	printf("%llx", moduleBase);
-
-	Initdx11((HWND)0x00010436);
 	
 	
+	
+
+	//[7FF7FF497D90 + 17 * 8] + 19506 + 2  7FF7FF497D90为GName第一个数组
+
+
+	
+
+	if (Memory::init() == false) {
+
+		printf("[-]游戏未打开");
+
+	}
+	g_Game_Module = Memory::GetModleBaseAdr();
+
+	if (Engine::Init() == NULL) {
+		printf("[-] 初始化失败");
+	}
+
+	std::string str= Engine::GetName(0x01A516CC);
+	std::cout << str.c_str()<<std::endl;
+	
+	Initdx11((HWND)0x00010458);
 	while (true) {
 		MSG msg{};
 

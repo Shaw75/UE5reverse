@@ -22,5 +22,5 @@ ULONG64 Memory::GetModleBaseAdr()
         return 0;
     }
    
-    return  Read<ULONG64>(((char*)info.PebBaseAddress) + 0x10);
+    return  Read<ULONG64>((ULONG64)(((char*)info.PebBaseAddress) + 0x10));
 }  

@@ -10,18 +10,18 @@ class Memory
 	public:
 		static bool init();
 		template<typename T>
-		static T Read(PVOID adr) {
+		static T Read(ULONG64 adr) {
 			T buf{};
 			SIZE_T size;
-			ReadProcessMemory(m_Process, adr, &buf,sizeof(buf), &size);
+			ReadProcessMemory(m_Process, (PVOID)adr, &buf,sizeof(buf), &size);
 			return buf;
 
 		}
 
 		template<typename T>
-		static void Write(PVOID adr, T buf) {
+		static void Write(ULONG64 adr, T buf) {
 			size_t size;
-			WriteProcessMemory(m_Process, adr, buf, sizeof(T), &size);
+			WriteProcessMemory(m_Process, (PVOID)adr, buf, sizeof(T), &size);
 
 
 		}

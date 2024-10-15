@@ -117,8 +117,10 @@ bool Initdx11(HWND hwnd) {
     ID3D11Texture2D* pBackBuffer{};
     g_ptr_Swap_Chain->GetBuffer(0, IID_PPV_ARGS(&pBackBuffer));
 
+    g_ptr_D3D_Device->CreateRenderTargetView(pBackBuffer, nullptr, &g_ptr_MainRenderTargetView);
+   
     
-    g_ptr_D3D_Device->CreateRenderTargetView(pBackBuffer,nullptr,&g_ptr_MainRenderTargetView);
+    
 
     pBackBuffer->Release();
     
