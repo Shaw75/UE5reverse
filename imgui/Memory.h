@@ -5,6 +5,7 @@
 
 
 
+
 class Memory
 { 
 	public:
@@ -31,3 +32,5 @@ class Memory
 		static DWORD m_Pid;
 
 };
+
+

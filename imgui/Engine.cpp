@@ -54,6 +54,8 @@ struct FNameEntryHandle
 	 return m_Gname;
 }
  enum { Stride = alignof(FNameEntry) }; 
+
+ //[7FF7FF497D90 + 17 * 8] + 19506 + 2  7FF7FF497D90为GName第一个数组
  std::string Engine::GetName(int Index) {
 	
 	 

@@ -26,16 +26,7 @@ void TestDraw() {
 
 int main() {
 
-	
-	
-	
-
-	//[7FF7FF497D90 + 17 * 8] + 19506 + 2  7FF7FF497D90为GName第一个数组
-
-
-	
-
-	if (Memory::init() == false) {
+     if (Memory::init() == false) {
 
 		printf("[-]游戏未打开");
 
@@ -46,7 +37,22 @@ int main() {
 		printf("[-] 初始化失败");
 	}
 
-	std::string str= Engine::GetName(0x01A516CC);
+	//GWorld -> UWorld -> PersistentLevel - >TArary<AActor> Actros.count
+	
+
+	do {
+		ULONG64 UWorld = Memory::Read<ULONG64>(g_Game_Module+Offset::GWorld_off);
+		ULONG64 PersistenLevel = Memory::Read<ULONG64>(UWorld + 0x30);
+		TArary<AActor> Actors = Memory::Read<TArary<AActor>>(PersistenLevel + 0x98);
+
+		
+		printf("[+] %d,%d\n", Actors.count, Actors.maxcount);
+		getchar();
+
+	} while (true);   
+	{}; 
+
+	std::string str= Engine::GetName(0x00150A8E);
 	std::cout << str.c_str()<<std::endl;
 	
 	Initdx11((HWND)0x00010458);
